@@ -57,7 +57,7 @@ setEquals setA setB = case (storage setA, storage setB) of
   ([], []) -> True
   ([], _ ) -> False
   (_,  []) -> False
-  (x: xs, _) -> (containsElement setB x) && (Set xs) `setEquals` (removeElement x setB)
+  (x: xs, _) -> (containsElement setB x) && setEquals (Set xs) (removeElement x setB)
   
 
 -- | Checks if an element is present in a set
@@ -83,7 +83,7 @@ setUnion (Set listA) (Set listB) = Set (union listA listB)
 -- | Computes the intersection of two sets (all the elements in both sets)
 -- best O(?), worst O(?), average O(?)
 setIntersection :: (Eq a) => Set a -> Set a -> Set a
-setIntersection (Set listA) (Set listB) = Set (listA `intersect` listB)
+setIntersection (Set listA) (Set listB) = Set (intersect listA listB)
 
 -- | Computes the set difference (all the elements in the first set, but not the second)
 -- best O(?), worst O(?), average O(?)
