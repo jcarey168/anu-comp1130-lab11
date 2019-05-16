@@ -17,7 +17,7 @@ The first has already been done for you.
 -}
 
 -- | Checks if an element is present in a list.
--- O(1), Theta(n), Omega(n)
+-- best O(1), worst O(n), average O(n)
 elem :: (Eq a) => a -> [a] -> Bool
 elem e list = case list of
     [] -> False
@@ -26,28 +26,28 @@ elem e list = case list of
         |otherwise -> elem e xs
 
 -- | Computes the length of the input list
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 length :: [a] -> Integer
 length list = case list of
     [] -> 0
     _:xs -> 1 + length xs
 
 -- | Takes in a list, and throws the list away, and returns zero.
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 zero :: [a] -> Integer
 zero list = case list of
     [] -> 0
     _:xs -> zero xs
 
 -- | Returns the first element in a list
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 head :: [a] -> a
 head list = case list of
     [] -> error "head: Empty list has no first element"
     x:_ -> x
 
 -- | Returns the last element in a list
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 tail :: [a] -> a
 tail list = case list of
     [] -> error "tail: Empty list has no last element"
@@ -55,7 +55,7 @@ tail list = case list of
     x:xs -> tail xs
 
 -- | Takes a list, and removes the duplicate elements
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 nub :: (Eq a) => [a] -> [a]
 nub list = case list of
     [] -> []
@@ -64,20 +64,20 @@ nub list = case list of
         |otherwise -> x : nub xs
 
 -- | Concatenates two lists together
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 (++) :: [a] -> [a] -> [a]
 []      ++ ys = ys
 (x:xs)  ++ ys = x:(xs ++ ys)
 
 -- | Reverses a list
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 rev1 :: [a] -> [a]
 rev1 list = case list of
     [] -> []
     x:xs -> (rev1 xs) ++ [x]
 
 -- | Reverses a list
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 rev2 :: [a] -> [a]
 rev2 list = revHelper list []
     where
@@ -93,23 +93,23 @@ Work out the complexity for these functions: fib1, fib2, power.
 
 -- | Computes 2^n deliberately inefficiently
 -- O(2^n), Theta(2^n), Omega(2^n)
-exp2 :: Integer -> Integer -> Integer
+exp2 :: Integer -> Integer
 exp2 n
     |n < 0  = error "exp2: undefined for negative arguments"
     |n == 0 = 1
     |n > 0  = exp2 (n - 1) + exp2 (n - 1) 
 
 -- | Computes the fibonacci function
--- O(?), Theta(?), Omega(?)
-fib1 :: Integer -> Integer -> Integer
+-- best O(?), worst O(?), average O(?)
+fib1 :: Integer -> Integer
 fib1 n
     |n < 0  = error "fib: undefined for negative arguments"
     |n == 0 = 0
     |otherwise = fib1 (n-1) + fib1 (n-2)
 
 -- | Computes the fibonacci function
--- O(?), Theta(?), Omega(?)
-fib2 :: Integer -> Integer -> Integer
+-- best O(?), worst O(?), average O(?)
+fib2 :: Integer -> Integer
 fib2 n 
     |n < 0      = error "fib2: undefined for negative arguments"
     |otherwise  = fibHelper 0 0 1
@@ -118,11 +118,11 @@ fib2 n
         fibHelper n curr prev = fibHelper (n-1) (curr + prev) curr
 
 -- | Computes exponentiation via repeated multiplication
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 power :: (Num a) => a -> Integer -> a
 power base index
     |index < 0 = error "power: negative exponent"
-    |index = 0 = 1
+    |index == 0 = 1
     |otherwise = base * (power base (index - 1))
 
 {-
@@ -136,12 +136,12 @@ Do not use (**) or (^) to solve this problem.
 -}
 
 -- | A useful helper function that squares a number.
-square :: (Num a) => a -> Integer -> a
+square :: (Num a) => a -> a
 square x = x * x
 
 
 -- | Optimised exponentiation
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 powerFast :: (Num a) => a -> Integer -> a
 powerFast = undefined
 

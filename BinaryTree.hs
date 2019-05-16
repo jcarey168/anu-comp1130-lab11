@@ -26,7 +26,7 @@ data BinaryTree a = Null | Node (BinaryTree a) a (BinaryTree a)
 {-
 Exercise 5
 
-Copy in your solutiosn from Lab 09 and Lab 10
+Copy in your solutions from Lab 09 and Lab 10
 (or finish them off if you haven't)
 
 State the complexity class of each function.
