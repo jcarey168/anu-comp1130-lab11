@@ -1,19 +1,19 @@
 module SetsWithTrees ( 
-   Set,             -- Set a = BSTree a
-   storage,         -- :: Set a -> BSTree a
-   isLegalSet,      -- :: (Eq a) => Set a -> Bool
-   emptySet,        -- :: Set a
-   singletonSet,    -- :: a -> Set a
-   setSize,         -- :: Integral b => Set a -> b
-   setEquals,       -- :: (Eq a) => Set a -> Set a -> Bool
-   containsElement, -- :: (Eq a) => Set a -> a -> Bool
-   addElement,      -- :: (Eq a) => a -> Set a -> Set a
-   removeElement,   -- :: (Eq a) => a -> Set a -> Set a
-   setUnion,        -- :: (Eq a) => Set a -> Set a -> Set a
-   setIntersection, -- :: (Eq a) => Set a -> Set a -> Set a
-   setDifference,   -- :: (Eq a) => Set a -> Set a -> Set a
-   setMap,          -- :: (Eq b) => (a -> b) -> Set a -> Set b
-   setFilter        -- :: (a -> Bool) -> Set a -> Set a
+    Set,             -- Set a = BSTree a
+    storage,         -- :: Set a -> BSTree a
+    isLegalSet,      -- :: (Eq a) => Set a -> Bool
+    emptySet,        -- :: Set a
+    singletonSet,    -- :: a -> Set a
+    setSize,         -- :: Integral b => Set a -> b
+    setEquals,       -- :: (Eq a) => Set a -> Set a -> Bool
+    containsElement, -- :: (Eq a) => Set a -> a -> Bool
+    addElement,      -- :: (Eq a) => a -> Set a -> Set a
+    removeElement,   -- :: (Eq a) => a -> Set a -> Set a
+    setUnion,        -- :: (Eq a) => Set a -> Set a -> Set a
+    setIntersection, -- :: (Eq a) => Set a -> Set a -> Set a
+    setDifference,   -- :: (Eq a) => Set a -> Set a -> Set a
+    setMap,          -- :: (Eq b) => (a -> b) -> Set a -> Set b
+    setFilter        -- :: (a -> Bool) -> Set a -> Set a
 ) where
 
 import BinaryTree
