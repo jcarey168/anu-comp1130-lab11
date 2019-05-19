@@ -30,12 +30,6 @@ setSize (Set list) = case list of
   _: xs -> 1 + setSize (Set xs)
 
 
--- | Extracts the underlying data structure for the set
--- best O(?), worst O(?), average O(?)
-storage :: Set a -> [a]
-storage (Set list) = list
-
-
 -- | Checks if an element is present in a set
 -- best O(1), worst O(n), average O(n)
 containsElement :: (Eq a) => Set a -> a -> Bool
