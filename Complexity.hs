@@ -135,16 +135,14 @@ to write a faster version.
 Do not use (**) or (^) to solve this problem.
 -}
 
--- | A useful helper function that squares a number.
-square :: (Num a) => a -> a
-square x = x * x
-
-
 -- | Optimised exponentiation
 -- best O(?), worst O(?), average O(?)
 powerFast :: (Num a) => a -> Integer -> a
 powerFast = undefined
 
+-- | A useful helper function that squares a number.
+square :: (Num a) => a -> a
+square x = x * x
 
 
 

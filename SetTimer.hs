@@ -90,6 +90,36 @@ main = do
   time $ putStrLn $ show $ ((setSize glassSet_2) :: Integer)
   putStr "\n"
 
+  
+  
+
+  -- Calculate all words in both AAIW and TTLG, the hard way using contains
+  putStrLn "- Working out how many words appear in both texts, using contains."
+  let bothLists = nub $ aliceWords ++ glassWords
+  putStr "\tDistinct words in either AAIW or TTLG: "
+  putStrLn $ (show (length bothLists))
+  let wordsInBoth = [ word | word <- bothLists
+                      , aliceSet `containsElement` word
+                      , glassSet `containsElement` word ]
+  let sharedSize = length $ wordsInBoth
+  putStr "\tWords in both AAIW and TTLG: "
+  time $ putStrLn $ show sharedSize
+  putStr "\n"
+
+
+  putStrLn "- Checking whether each small set is equal to any other small set."
+  let combinedSmallSets = aliceSmallSets ++ glassSmallSets
+  let equalityChecks = [ (set1,set2) | set1 <- combinedSmallSets
+                        , set2 <- combinedSmallSets
+                        , set1 `setEquals` set2 ]
+  putStr "\tNumber of combinations of equal sets: "
+  time $ putStrLn $ show $ length $ equalityChecks
+  putStr "\n"
+
+  -- ==============================================================
+  -- This part won't run unless you've also got the 1130 extensions.
+  -- ==============================================================
+
   -- Return both sets to the empty set by removing elements individually
   putStrLn "- Removing all elements from AAIW set, one by one."
   let aliceBackToEmpty = foldr removeElement aliceSet (reverse aliceWords)
@@ -118,20 +148,7 @@ main = do
   putStr "\tWords in TTLG after all inputs removed (should be 0): "
   time $ putStrLn $ show glassSetSizeEmptyDifference
   putStr "\n"
-
-  -- Calculate all words in both AAIW and TTLG, the hard way using contains
-  putStrLn "- Working out how many words appear in both texts, using contains."
-  let bothLists = nub $ aliceWords ++ glassWords
-  putStr "\tDistinct words in either AAIW or TTLG: "
-  putStrLn $ (show (length bothLists))
-  let wordsInBoth = [ word | word <- bothLists
-                      , aliceSet `containsElement` word
-                      , glassSet `containsElement` word ]
-  let sharedSize = length $ wordsInBoth
-  putStr "\tWords in both AAIW and TTLG: "
-  time $ putStrLn $ show sharedSize
-  putStr "\n"
-
+                          
   putStrLn "- Working out how many words appear in both texts, using set intersection."
   putStr "\tDistinct words in either AAIW or TTLG: "
   putStrLn $ show $ (setSize :: Set a -> Integer) $ aliceSet `setUnion` glassSet
@@ -139,14 +156,3 @@ main = do
   putStr "\tWords in both AAIW and TTLG: "
   time $ putStrLn $ show sharedSizeIntersect
   putStr "\n"
-
-  putStrLn "- Checking whether each small set is equal to any other small set."
-  let combinedSmallSets = aliceSmallSets ++ glassSmallSets
-  let equalityChecks = [ (set1,set2) | set1 <- combinedSmallSets
-                        , set2 <- combinedSmallSets
-                        , set1 `setEquals` set2 ]
-  putStr "\tNumber of combinations of equal sets: "
-  time $ putStrLn $ show $ length $ equalityChecks
-  putStr "\n"
-                          
- 

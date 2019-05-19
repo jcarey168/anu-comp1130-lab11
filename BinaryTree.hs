@@ -1,21 +1,4 @@
-module BinaryTree(
-    BinaryTree(Null, Node),
-    BSTree, 
-    treeSize,       -- :: BinaryTree a -> Integer
-    treeDepth,      -- :: BinaryTree a -> Integer
-    flattenTree,    -- :: BinaryTree a -> [a]
-    leavesTree,     -- :: BinaryTree a -> [a]
-    treeMap,        -- :: (a -> b) -> (BinaryTree a) -> (BinaryTree b)
-    elemBSTree,     -- :: (Ord a) => a -> (BSTree a) -> Bool
-    treeBSMax,      -- :: (Ord a) => BSTree a -> a
-    treeBSMin,      -- :: (Ord a) => BSTree a -> a
-    isBSTree,       -- :: (Ord a) => BinaryTree a -> Bool
-    treeInsert,     -- :: (Ord a) => BSTree a -> a -> BSTree a
-    flattenTreeOrd, -- :: BSTree a -> [a]
-    treeDelete,     -- :: (Ord a) => (BSTree a) -> a -> (BSTree a)
-    treeBalance,    -- :: (Ord a) => BSTree a -> BSTree a
-    printTree       -- :: (Show a) => BinaryTree a -> IO ()
-) where
+module BinaryTree where
 
 type BSTree a = BinaryTree a
 
@@ -80,8 +63,12 @@ treeInsert = undefined
 
 -- O(?), Theta(?), Omega(?)
 flattenTreeOrd :: BSTree a -> [a]
-flattenTreeOrd = undefined
+flattenTreeOrd = undefined 
 
+
+-- =================================
+-- Functions below are COMP1130 only
+-- =================================
 
 -- O(?), Theta(?), Omega(?)
 treeDelete :: (Ord a) => (BSTree a) -> a -> (BSTree a)
