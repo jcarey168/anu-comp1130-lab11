@@ -105,6 +105,7 @@ fib1 :: Integer -> Integer
 fib1 n
     |n < 0  = error "fib: undefined for negative arguments"
     |n == 0 = 0
+    |n == 1 = 1
     |otherwise = fib1 (n-1) + fib1 (n-2)
 
 -- | Computes the fibonacci function
