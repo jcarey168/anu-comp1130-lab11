@@ -92,7 +92,7 @@ Work out the complexity for these functions: fib1, fib2, power.
 -}
 
 -- | Computes 2^n deliberately inefficiently
--- O(2^n), Theta(2^n), Omega(2^n)
+-- best O(?), worse O(?), average O(?)
 exp2 :: Integer -> Integer
 exp2 n
     |n < 0  = error "exp2: undefined for negative arguments"
