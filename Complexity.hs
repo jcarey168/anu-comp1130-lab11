@@ -113,7 +113,7 @@ fib1 n
 fib2 :: Integer -> Integer
 fib2 n 
     |n < 0      = error "fib2: undefined for negative arguments"
-    |otherwise  = fibHelper 0 0 1
+    |otherwise  = fibHelper n 0 1
         where
         fibHelper 0 curr prev = curr
         fibHelper n curr prev = fibHelper (n-1) (curr + prev) curr
