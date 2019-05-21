@@ -18,50 +18,50 @@ They should be written as efficently as possible.
 
 -- Copy in your solutions from Lab 09
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeSize :: BinaryTree a -> Integer
 treeSize = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeDepth :: BinaryTree a -> Integer
 treeDepth = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 flattenTree :: BinaryTree a -> [a]
 flattenTree = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 leavesTree :: BinaryTree a -> [a]
 leavesTree = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeMap :: (a -> b) -> (BinaryTree a) -> (BinaryTree b)
 treeMap = undefined
 
 
 -- Copy in your solutions from Lab 10
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 elemBSTree :: (Ord a) => a -> (BSTree a) -> Bool
 elemBSTree = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeBSMax :: (Ord a) => BSTree a -> a
 treeBSMax = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeBSMin :: (Ord a) => BSTree a -> a
 treeBSMin = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 isBSTree :: (Ord a) => BinaryTree a -> Bool
 isBSTree = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeInsert :: (Ord a) => BSTree a -> a -> BSTree a
 treeInsert = undefined
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 flattenTreeOrd :: BSTree a -> [a]
 flattenTreeOrd = undefined 
 
@@ -70,13 +70,13 @@ flattenTreeOrd = undefined
 -- Functions below are COMP1130 only
 -- =================================
 
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeDelete :: (Ord a) => (BSTree a) -> a -> (BSTree a)
 treeDelete = undefined
 
 -- This was an optional exercise, so if you haven't implemented treeBalance, 
 -- don't worry about it.
--- O(?), Theta(?), Omega(?)
+-- best O(?), worst O(?), average O(?)
 treeBalance :: (Ord a) => BSTree a -> BSTree a
 treeBalance = undefined
 
