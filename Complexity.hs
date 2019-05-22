@@ -26,28 +26,28 @@ elem e list = case list of
         |otherwise -> elem e xs
 
 -- | Computes the length of the input list
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 length :: [a] -> Integer
 length list = case list of
     [] -> 0
     _:xs -> 1 + length xs
 
 -- | Takes in a list, and throws the list away, and returns zero.
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 zero :: [a] -> Integer
 zero list = case list of
     [] -> 0
     _:xs -> zero xs
 
 -- | Returns the first element in a list
--- best O(?), worst O(?), average O(?)
+-- best O(1), worst O(1), average O(1)
 head :: [a] -> a
 head list = case list of
     [] -> error "head: Empty list has no first element"
     x:_ -> x
 
 -- | Returns the last element in a list
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 tail :: [a] -> a
 tail list = case list of
     [] -> error "tail: Empty list has no last element"
@@ -55,7 +55,7 @@ tail list = case list of
     x:xs -> tail xs
 
 -- | Takes a list, and removes the duplicate elements
--- best O(?), worst O(?), average O(?)
+-- best O(n^2), worst O(n^2), average O(n^2)
 nub :: (Eq a) => [a] -> [a]
 nub list = case list of
     [] -> []
@@ -64,20 +64,20 @@ nub list = case list of
         |otherwise -> x : nub xs
 
 -- | Concatenates two lists together
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 (++) :: [a] -> [a] -> [a]
 []      ++ ys = ys
 (x:xs)  ++ ys = x:(xs ++ ys)
 
 -- | Reverses a list
--- best O(?), worst O(?), average O(?)
+-- best O(n^2), worst O(n^2), average O(n^2)
 rev1 :: [a] -> [a]
 rev1 list = case list of
     [] -> []
     x:xs -> (rev1 xs) ++ [x]
 
 -- | Reverses a list
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 rev2 :: [a] -> [a]
 rev2 list = revHelper list []
     where
@@ -92,7 +92,7 @@ Work out the complexity for these functions: fib1, fib2, power.
 -}
 
 -- | Computes 2^n deliberately inefficiently
--- best O(?), worse O(?), average O(?)
+-- best O(2^n), worse O(2^n), average O(2^n)
 exp2 :: Integer -> Integer
 exp2 n
     |n < 0  = error "exp2: undefined for negative arguments"
@@ -100,7 +100,7 @@ exp2 n
     |n > 0  = exp2 (n - 1) + exp2 (n - 1) 
 
 -- | Computes the fibonacci function
--- best O(?), worst O(?), average O(?)
+-- best O(n^2), worst O(n^2), average O(n^2)
 fib1 :: Integer -> Integer
 fib1 n
     |n < 0  = error "fib: undefined for negative arguments"
@@ -109,7 +109,7 @@ fib1 n
     |otherwise = fib1 (n-1) + fib1 (n-2)
 
 -- | Computes the fibonacci function
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
 fib2 :: Integer -> Integer
 fib2 n 
     |n < 0      = error "fib2: undefined for negative arguments"
@@ -119,7 +119,8 @@ fib2 n
         fibHelper n curr prev = fibHelper (n-1) (curr + prev) curr
 
 -- | Computes exponentiation via repeated multiplication
--- best O(?), worst O(?), average O(?)
+-- best O(n), worst O(n), average O(n)
+-- 2^n = 2 * 2^(n-1) = 2*2*2^(n-2)=...
 power :: (Num a) => a -> Integer -> a
 power base index
     |index < 0 = error "power: negative exponent"
