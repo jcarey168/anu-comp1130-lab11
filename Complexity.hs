@@ -137,11 +137,17 @@ to write a faster version.
 Do not use (**) or (^) to solve this problem.
 -}
 
--- | Optimised exponentiation
--- best O(?), worst O(?), average O(?)
-powerFast :: (Num a) => a -> Integer -> a
-powerFast = undefined
 
+-- | Optimised exponentiation
+-- best O(log n), worst O(log n), average O(log n)
+powerFast :: (Num a) => a -> Integer -> a
+powerFast base index
+    | index == 0 = 1
+   -- | index == 1 = base
+    | index `mod` 2 == 0 = x * x
+    | otherwise = base * x * x
+    where
+        x = powerFast base (index `div` 2)
 -- | A useful helper function that squares a number.
 square :: (Num a) => a -> a
 square x = x * x
